@@ -1,0 +1,485 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.left-side {
+  flex: 1;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-side {
+  width: 700px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-right: 0;
+  margin-top: 8rem;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  transition-delay: 0.2s;
+}
+
+h1.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  color: #ff6b4a;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  transition-delay: 0.4s;
+}
+
+.title.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about {
+  max-width: 800px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  transition-delay: 0.6s;
+}
+
+.about.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.about p {
+  margin-bottom: 3rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.social-icon span {
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.social-icon.linkedin {
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
+}
+
+.social-icon.github {
+  background: linear-gradient(45deg, #333, #666);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(45deg, #1da1f2, #0d8ecf);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.email-icon {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  color: #ff6b4a;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s ease;
+  transition-delay: 1s;
+  z-index: 1100;
+}
+
+.email-icon.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.email-icon:hover {
+  transform: scale(1.1);
+}
+
+.skill-icons-container {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  margin-top: 16rem;
+  margin-right: -8rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  transition-delay: 1.2s;
+  perspective: 1200px;
+  cursor: grab;
+}
+
+.skill-icons-container:active {
+  cursor: grabbing;
+}
+
+.skill-icons-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-icons {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.skill-icon {
+  position: absolute;
+  width: 65px;
+  height: 85px;
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  will-change: transform, opacity;
+  backdrop-filter: blur(5px);
+  gap: 8px;
+  padding: 8px;
+}
+
+.skill-icon img {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.skill-name {
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.9;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.skill-icon:hover {
+  background: rgba(26, 26, 26, 0.95);
+  transform: scale(1.15) translateZ(30px) !important;
+  z-index: 1000 !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.skill-icon:hover .skill-name {
+  opacity: 1;
+}
+
+.skill-icon {
+  transform-origin: 150px 150px;
+  transform: rotate(calc(360deg / 9 * var(--i))) translateX(120px);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-rotate {
+  0% {
+    transform: rotate(calc(360deg / 9 * var(--i))) translateX(120px)
+      rotate(0deg);
+  }
+  100% {
+    transform: rotate(calc(360deg / 9 * var(--i))) translateX(120px)
+      rotate(-360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .left-side {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .right-side {
+    width: 100%;
+    align-items: center;
+    padding-top: 3rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .about h2 {
+    font-size: 2rem;
+  }
+
+  .skill-icons-container {
+    transform: scale(0.8);
+  }
+
+  .email-icon {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    margin: 0;
+    z-index: 100;
+  }
+}
+
+.skill-icon.git-icon img {
+  filter: brightness(2);
+}
+
+.skill-icon.git-icon:hover img {
+  filter: brightness(2.2);
+}
+
+.motto {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  transition-delay: 0.3s;
+}
+
+.motto.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline {
+  margin: 3rem 0;
+  border-left: 2px solid #ff6b4a;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #ff6b4a;
+  border-radius: 50%;
+  position: absolute;
+  left: -2.6rem;
+  top: 5px;
+}
+
+.timeline-item .date {
+  color: #ff6b4a;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item .event {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.contact-section {
+  margin: 3rem 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cv-button {
+  background: #ff6b4a;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cv-button:hover {
+  background: #ff8263;
+  transform: translateY(-2px);
+}
+
+.email-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.social-icon span {
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.social-icon.linkedin {
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
+}
+
+.social-icon.github {
+  background: linear-gradient(45deg, #333, #666);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(45deg, #1da1f2, #0d8ecf);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item::before {
+    left: -2.1rem;
+  }
+
+  .social-icon span {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
